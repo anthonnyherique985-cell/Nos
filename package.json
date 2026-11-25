@@ -1,0 +1,8 @@
+{
+  "name": "nosite",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node --no-warnings server.js"
+  }
+}

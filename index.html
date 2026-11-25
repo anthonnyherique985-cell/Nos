@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NO$ — Coletivo de hacking ético</title>
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="noise"></div>
+<header>
+  <div class="logo"><img src="/assets/logo.png" alt="" class="logo-mark">NO<span>$</span></div>
+  <nav id="nav">
+    <a href="#sobre">Sobre</a>
+    <a href="#especialidades">Especialidades</a>
+    <a href="#comunicados">Comunicados</a>
+    <a href="#" id="account-link">Entrar</a>
+  </nav>
+  <button id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div id="auth-overlay" class="overlay" hidden>
+  <div class="overlay-card">
+    <button class="overlay-close" id="auth-close" aria-label="Fechar">&times;</button>
+    <div id="auth-tabs" class="auth-tabs">
+      <button class="auth-tab active" data-tab="login">Entrar</button>
+      <button class="auth-tab" data-tab="register">Criar conta</button>
+    </div>
+    <form id="login-form" class="auth-form">
+      <label for="login-user">Usuário</label>
+      <input id="login-user" autocomplete="username" required>
+      <label for="login-pass">Senha</label>
+      <input id="login-pass" type="password" autocomplete="current-password" required>
+      <button type="submit">Entrar</button>
+      <div class="auth-msg" id="login-msg"></div>
+    </form>
+    <form id="register-form" class="auth-form" hidden>
+      <label for="reg-user">Usuário</label>
+      <input id="reg-user" autocomplete="username" required>
+      <label for="reg-pass">Senha</label>
+      <input id="reg-pass" type="password" autocomplete="new-password" required>
+      <button type="submit">Criar conta</button>
+      <div class="auth-msg" id="register-msg"></div>
+    </form>
+  </div>
+</div>
+
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow" id="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="tag">White hat collective</span>
+      <h1>NO<span class="cash">$</span></h1>
+      <p>Segurança ofensiva responsável. Testamos limites de infraestrutura e combatemos redes de exploração infantil — sempre dentro da lei, sempre com propósito.</p>
+    </div>
+    <div class="hero-emblem-wrap" id="emblem-wrap">
+      <img src="/assets/logo.png" alt="Emblema NO$: caveira com cifrão coroada, folhas de louro verdes e roxas" class="hero-emblem" id="emblem">
+    </div>
+  </div>
+  <div class="scroll-cue">role para saber mais</div>
+</section>
+
+<section id="sobre" class="reveal">
+  <span class="section-label">01 / sobre</span>
+  <h2>Hacking como ferramenta de defesa, não de ataque.</h2>
+  <p class="about-text">
+    O <strong>NO$</strong> é um coletivo de hacking ético. Trabalhamos com testes de estresse
+    controlados (DDoS e DoS éticos) para ajudar times a identificar pontos de falha antes que
+    um atacante real os explore, e dedicamos parte da nossa operação a rastrear e reportar
+    redes ligadas à exploração infantil às autoridades competentes.
+    Nenhuma ação aqui descrita é feita sem autorização explícita do alvo testado.
+  </p>
+</section>
+
+<section id="especialidades" class="reveal">
+  <span class="section-label">02 / especialidades</span>
+  <h2>Três frentes, um único compromisso: segurança com responsabilidade.</h2>
+  <div class="specs">
+    <div class="spec-card c-green">
+      <span class="num">01</span>
+      <h3>DDoS ético</h3>
+      <p>Simulações de ataque distribuído sob contrato, para medir a resiliência real de infraestruturas antes que um agente malicioso o faça.</p>
+    </div>
+    <div class="spec-card c-blue">
+      <span class="num">02</span>
+      <h3>DoS ético</h3>
+      <p>Testes de carga e exaustão de recursos em ambiente controlado, com relatório técnico e plano de mitigação ao final.</p>
+    </div>
+    <div class="spec-card c-pink">
+      <span class="num">03</span>
+      <h3>Proteção infantil</h3>
+      <p>Rastreamento, documentação e encaminhamento de evidências sobre redes de exploração infantil aos órgãos responsáveis.</p>
+    </div>
+  </div>
+</section>
+
+<section id="comunicados" class="reveal">
+  <span class="section-label">03 / comunicados</span>
+  <h2>Últimas publicações</h2>
+  <div class="feed" id="feed">
+    <div class="feed-empty">carregando...</div>
+  </div>
+</section>
+
+<section id="painel" class="reveal" hidden>
+  <span class="section-label">04 / painel adm</span>
+  <h2>Painel administrativo</h2>
+
+  <div class="panel-grid">
+    <div class="card">
+      <h3 class="card-title">Publicar comunicado</h3>
+      <label for="f-title">Título</label>
+      <input id="f-title">
+      <label for="f-tag">Tag (opcional)</label>
+      <input id="f-tag" placeholder="ex: operação, alerta, comunicado">
+      <label for="f-body">Conteúdo</label>
+      <textarea id="f-body"></textarea>
+      <button id="save-btn">Publicar</button>
+      <button class="btn-secondary" id="cancel-edit-btn" hidden>Cancelar edição</button>
+      <div class="auth-msg" id="form-msg"></div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">Comunicados publicados</h3>
+      <div id="posts-list"></div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">Usuários cadastrados</h3>
+      <div id="users-list"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>NO$ © <span id="year"></span></span>
+</footer>
+
+<script src="/site.js"></script>
+</body>
+</html>

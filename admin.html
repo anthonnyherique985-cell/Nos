@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NO$ — Admin</title>
+<link rel="stylesheet" href="/style.css">
+<style>
+  .panel { max-width: 760px; margin: 0 auto; padding: 6rem 1.5rem 4rem; }
+  .card { background: var(--bg2); border: 1px solid var(--line); padding: 2rem; border-radius: 6px; margin-bottom: 1.5rem; }
+  label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--muted); margin: 1rem 0 0.4rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  input, textarea { width: 100%; background: #0d1319; border: 1px solid var(--line); color: var(--text); padding: 0.7rem 0.9rem; border-radius: 4px; font-family: inherit; font-size: 0.95rem; }
+  textarea { min-height: 110px; resize: vertical; }
+  button { font-family: 'JetBrains Mono', monospace; background: var(--accent); color: #000; border: none; padding: 0.7rem 1.3rem; border-radius: 4px; cursor: pointer; font-size: 0.85rem; margin-top: 1.3rem; font-weight: 500; }
+  button.secondary { background: transparent; color: var(--muted); border: 1px solid var(--line); margin-left: 0.6rem; }
+  button.danger { background: var(--accent2); color: #000; }
+  .msg { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; margin-top: 0.8rem; color: var(--accent2); }
+  .post-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.2rem 0; border-bottom: 1px solid var(--line); }
+  .post-row:last-child { border-bottom: none; }
+  .post-row h4 { margin: 0 0 0.3rem; }
+  .post-row p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+  .post-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+  .post-actions button { margin-top: 0; padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<div id="login-view" class="panel">
+  <div class="card">
+    <div class="logo" style="margin-bottom:1.5rem">NO<span style="color:var(--accent)">$</span> admin</div>
+    <label for="user">Usuário</label>
+    <input id="user" autocomplete="username">
+    <label for="pass">Senha</label>
+    <input id="pass" type="password" autocomplete="current-password">
+    <button id="login-btn">Entrar</button>
+    <div class="msg" id="login-msg"></div>
+  </div>
+</div>
+
+<div id="dash-view" class="panel" style="display:none">
+  <div class="topbar">
+    <div class="logo">NO<span style="color:var(--accent)">$</span> admin</div>
+    <button class="secondary" id="logout-btn">Sair</button>
+  </div>
+
+  <div class="card">
+    <label for="f-title">Título</label>
+    <input id="f-title">
+    <label for="f-tag">Tag (opcional)</label>
+    <input id="f-tag" placeholder="ex: operação, alerta, comunicado">
+    <label for="f-body">Conteúdo</label>
+    <textarea id="f-body"></textarea>
+    <button id="save-btn">Publicar</button>
+    <button class="secondary" id="cancel-edit-btn" style="display:none">Cancelar edição</button>
+    <div class="msg" id="form-msg"></div>
+  </div>
+
+  <div class="card">
+    <div id="posts-list"></div>
+  </div>
+</div>
+
+<script src="/admin.js"></script>
+</body>
+</html>
